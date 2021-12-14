@@ -43,4 +43,24 @@ describe Oystercard do
             expect(subject.deduct(50)).to eq (new_card.balance - 50)
         end 
     end
+
+    describe '#touch_in' do
+        it '#touch_in for oystercard' do 
+            subject.touch_in
+            expect(subject).to be_in_journey
+        end 
+    end 
+
+    describe '#touch_out' do
+        it '#touch_out for oystercard' do 
+            expect(subject).to respond_to(:touch_out)
+        end 
+    end 
+  
+    describe '#in_journey' do
+        it 'is initially not in a journey' do
+            expect(subject).not_to be_in_journey
+        end
+    end 
+    
 end
