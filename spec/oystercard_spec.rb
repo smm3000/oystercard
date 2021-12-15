@@ -70,24 +70,5 @@ describe Oystercard do
             expect { subject.touch_out }. to change{ subject.balance }.by(-Oystercard::Minimum_Fare)
         end 
     end 
-   
-
-
-
-
-
-    #Notes SM:
-    # I want to have a test that:
-    # Checks that the balance of the oystercard is above a minimum balance (£1)
-    # If it does not pass - then the test returns a error msg.
-
-    # you can first check if the test will repsond to balance?
-
-   #=begin 
-   # describe 'when balance is below minimum fare return error msg' do
-    #it 'returns error message when balance below minimum' do
-    #    expect(subject.balance).to raise_error(balance < 1)
-   #end 
-
-    
+            
 end
