@@ -33,17 +33,6 @@ describe Oystercard do
         end 
     end
 
-    describe '#deduct' do
-        it 'deducts fare from oystercard' do
-            expect(subject).to respond_to(:deduct)
-        end
-
-        it 'deducts £50 value from oystercard' do 
-            new_card = Oystercard.new(0)
-            expect(subject.deduct(50)).to eq (new_card.balance - 50)
-        end 
-    end
-
     describe '#touch_in' do
         it '#touch_in for oystercard' do 
             new_card = Oystercard.new(40)
@@ -76,6 +65,11 @@ describe Oystercard do
         end 
     end 
 
+    describe '#touch_put to reduce balance' do
+        it 'reduces balance by the fare' do
+            expect { subject.touch_out }. to change{ subject.balance }.by(-Oystercard::Minimum_Fare)
+        end 
+    end 
    
 
 
